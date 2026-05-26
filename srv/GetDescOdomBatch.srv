@@ -1,0 +1,17 @@
+# 请求方 → 服务端：批量要 desc + odom
+uint8  robot_id      # 目标机器人 ID，必须等于服务端的 self_id
+uint32 start_id      # 从哪个 key_id 开始（包含）
+uint32 max_batch     # 最多返回多少条（例如 20）
+
+---
+# 服务端 → 请求方：批量返回
+bool   found_any     # 是否返回了至少一条
+uint32 next_id       # 建议下次请求的 start_id，通常为最后一个 key_id + 1
+
+uint32[] key_ids
+# 描述子数组（和下面的 odoms 一一对应）
+Descriptor[]       descriptors
+
+# 对应的里程计（nav_msgs/Odometry），与 descriptors[i] 对齐
+nav_msgs/Odometry[] odoms
+

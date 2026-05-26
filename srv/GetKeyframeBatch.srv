@@ -1,0 +1,5 @@
+uint8  robot_id
+uint32[] key_ids
+---
+sensor_msgs/PointCloud2[] keyframes
+
