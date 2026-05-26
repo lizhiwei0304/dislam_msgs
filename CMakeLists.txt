@@ -17,6 +17,8 @@ add_message_files(
   SubMap.msg
   Loop.msg
   Loops.msg
+  LoopCandidate.msg
+  LoopCandidates.msg
   Descriptor.msg
   NewSubMap.msg
 )
